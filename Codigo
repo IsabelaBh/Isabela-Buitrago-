@@ -12,15 +12,15 @@ def es_inteligente(n):
     """Determina si un número es inteligente (tiene un número impar de factores)."""
     return contar_factores(n) % 2 != 0
 
-# Solicitar la cantidad de números a validar
+
 cantidad = int(input("Ingrese la cantidad de números a validar: "))
 
-# Generar números aleatorios positivos
+
 numeros = [random.randint(1, 100) for _ in range(cantidad)]
 
-# Mostrar los números separados por coma
+
 print("Números generados:", ", ".join(map(str, numeros)))
 
-# Evaluar y mostrar si cada número es inteligente o no
+
 for num in numeros:
     print("Si" if es_inteligente(num) else "No")

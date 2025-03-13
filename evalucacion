@@ -1,0 +1,35 @@
+import java.util.*;
+
+public class NumeroInteligente {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Random random = new Random();
+       
+        System.out.print("Ingrese la cantidad de números a validar: ");
+        int cantidad = scanner.nextInt();
+       
+        List<Integer> numeros = new ArrayList<>();
+        List<String> resultados = new ArrayList<>();
+       
+        for (int i = 0; i < cantidad; i++) {
+            int num = random.nextInt(100) + 1; // Genera un número positivo entre 1 y 100
+            numeros.add(num);
+            resultados.add(esInteligente(num) ? "Si" : "No");
+        }
+       
+        System.out.println("Números generados: " + String.join(", ", numeros.stream().map(String::valueOf).toList()));
+        System.out.println("Resultados: " + String.join(", ", resultados));
+       
+        scanner.close();
+    }
+   
+    public static boolean esInteligente(int num) {
+        int contador = 0;
+        for (int i = 1; i <= num; i++) {
+            if (num % i == 0) {
+                contador++;
+            }
+        }
+        return contador % 2 != 0;
+    }
+}
